@@ -8,6 +8,7 @@ main:
     mov eax, 1
     cpuid
     
+    
     shr ebx, 16
     and ebx, 0x00FF
     
@@ -27,3 +28,4 @@ main:
     ; Возврат из программы
     mov eax, 0
     ret
+
