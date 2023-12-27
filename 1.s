@@ -8,19 +8,18 @@ main:
     mov eax, 1
     cpuid
     
-    ; Количество ядер хранится в EBX[16:23]
     shr ebx, 16
     and ebx, 0x00FF
     
     ; Подготовка параметров для вызова printf
-    push rdi ; Сохраняем rdi, так как он используется printf
+    push rdi 
     mov edi, format
     mov esi, ebx
-    xor eax, eax ; Используем регистр eax для передачи аргументов в printf
+    xor eax, eax 
     
     ; Вызываем printf
     call printf
-    add rsp, 8 ; Очистка стека от аргументов
+    add rsp, 8 
     
     ; Восстанавливаем сохраненное значение регистра rdi
     pop rdi
